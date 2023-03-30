@@ -14,7 +14,7 @@ export const productColumns = [
       renderCell: (params) => {
         return (
           <div className="cellWithImg">
-            <img className="cellImg" src={params.row.mediaUrl} alt="avatar" />
+            {/* <img className="cellImg" src={params.row.mediaUrl} alt="avatar" /> */}
             {params.row.name}
           </div>
         );
@@ -28,18 +28,18 @@ export const productColumns = [
     {
       field: "supplier",
       headerName: "Supplier",
-      width: 230,
+      width: 2,
     },
   
     {
       field: "quantity",
       headerName: "Quantity",
-      width: 150,
+      width: 50,
     },
     {
       field: "price",
       headerName: "Price",
-      width: 150,
+      width: 50,
     },
   ];
 

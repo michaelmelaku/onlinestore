@@ -50,16 +50,20 @@ const NewProduct = ({handleAdminPage}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = await upload(file); 
-   
+    try {
+      await axios.post("http://localhost:5000/api/products", {mediaUrl: url})
+    } catch (error) {
+      
+    }
     
-    // if(id !== null ) {
-    //   await updateProduct({id, mediaUrl: url, ...product});
-    //   toast.success("Product Updated!");
-    // }
-    // else {
-    //   await addProduct({mediaUrl: url, ...product});
-    //   toast.success("New Product Added!");
-    // }
+    if(id !== null ) {
+      await updateProduct({id, mediaUrl: url, ...product});
+      toast.success("Product Updated!");
+    }
+    else {
+      await addProduct({mediaUrl: url, ...product});
+      toast.success("New Product Added!");
+    }
    console.log(url) 
     clear();
     handleAdminPage("productList");
